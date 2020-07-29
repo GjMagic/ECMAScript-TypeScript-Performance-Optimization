@@ -26,6 +26,6 @@ const obj = {
   age: 26
 }
 
-/* for (const item of Object.entrise(obj)) {
-  console.log(item)
-} */
+for (const [key, value] of Object.entries(obj)) {
+  console.log(key, value)
+}
