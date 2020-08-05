@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闭包陷阱</title>
+</head>
+<body>
+  <button id="id">btn</button>
+  <script>
+    function foo () {
+      const el = document.getElementById('id')
+      el.onclick = function () {
+        console.log(el.id)
+      }
+    }
+
+    foo()
+
+    function foo1 () {
+      const el = document.getElementById('id')
+      el.onclick = function () {
+        console.log(el.id)
+      }
+
+      el = null // 释放函数中el对dom的引用
+    }
+
+    foo1()
+  </script>
+</body>
+</html>
